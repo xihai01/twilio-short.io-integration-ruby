@@ -2,6 +2,8 @@ require "json"
 require "twilio-ruby"
 
 class TwilioService
+  attr_writer :api_key, :api_secret, :acc_sid
+
   def initialize(api_key = nil, api_secret = nil, acc_sid = nil)
     @api_key = api_key
     @api_secret = api_secret
@@ -23,17 +25,5 @@ class TwilioService
       body: body,
       to: to
     )
-  end
-
-  def get_acc_sid
-    @acc_sid
-  end
-
-  def get_api_key
-    @api_key
-  end
-
-  def get_api_secret
-    @api_secret
   end
 end
