@@ -7,7 +7,7 @@ shortIO = ShortUrlService.new("42ni.short.gy", ENV["SHORT_API_KEY"])
 shortIO.create_short_url("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 short_url = shortIO.short_url
 
-# send an SMS with Twilio and short url
+# instantiate a Twilio object
 twilio = TwilioService.new(ENV["API_KEY_SID"], ENV["API_KEY_SECRET"], ENV["ACCOUNT_SID"])
 params = {
   From: ENV["FROM_PHONE"],
@@ -15,4 +15,6 @@ params = {
   To: ENV["TO_PHONE"],
   URL: short_url
 }
+
+# send the SMS!
 twilio.send_sms(params)

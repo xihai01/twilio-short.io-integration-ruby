@@ -1,4 +1,3 @@
-require "json"
 require "twilio-ruby"
 
 class TwilioService
